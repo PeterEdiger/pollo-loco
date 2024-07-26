@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Pollo Loco</title>
+
+  <link rel="icon" type="image/png" href="img/favicon_mexican_hat.webp" />
+
+  <script src="./js/models/drawable_object.class.js" defer></script>
+  <script src="./js/models/collidable_object.class.js" defer></script>
+  <script src="./js/models/movable_object.class.js" defer></script>
+  <script src="./js/models/throwable_object.class.js" defer></script>
+  <script src="./js/models/keyboard.class.js" defer></script>
+  <script src="./js/models/backgrounds.class.js" defer></script>
+  <script src="./js/models/clouds.class.js" defer></script>
+  <script src="./js/models/chicken.class.js" defer></script>
+  <script src="./js/models/character.class.js" defer></script>
+  <script src="./js/models/coins.class.js" defer></script>
+  <script src="./js/models/bottles.class.js" defer></script>
+  <script src="./js/models/level.class.js" defer></script>
+  <script src="./levels/level1.js" defer></script>
+  <script src="./js/models/endboss.class.js" defer></script>
+  <script src="./js/models/bars_health_bar.class.js" defer></script>
+  <script src="./js/models/bars_coins_bar.class.js" defer></script>
+  <script src="./js/models/bars_bottles_bar.class.js" defer></script>
+  <script src="./js/models/bars_endboss_bar.class.js" defer></script>
+
+  <script src="./templates/start_screen_templates.js" defer></script>
+
+  <script src="./js/models/world.class.js" defer></script>
+  <script src="./js/game.js" defer></script>
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body onload="showStartScreen()">
+  <div class="loco-content">
+    <h1>El Pollo Loco</h1>
+    <!---------------------------- CANVAS ---------------------------->
+    <div class="canvas-container">
+      <canvas id="canvas" width="720" height="480"></canvas>
+      <!---------------------------- START SCREEN ---------------------------->
+      <div class="start-screen-container">
+        <img class="start-screen" src="./img/9_intro_outro_screens/start/startscreen_1.png" alt="">
+        <div class="start-button" onclick="init()">Start</div>
+        <div class="game-controls" onclick="showGameControls()">Game Controls</div>
+        <div class="privacy-policy" onclick="showPrivacyPolicy()">Privacy Policy</div>
+        <div class="legal-notice" onclick="showLegalNotice()">Legal Notice</div>
+      </div>
+      <!---------------------------- YOU LOST SCREEN ---------------------------->
+      <div class="you-lost-container d-none">
+        <img class="end-screen" src="./img/5_background/first_half_background.png" alt="">
+        <img class="you-lost-img" src="./img/9_intro_outro_screens/game_over/you lost.png" alt="">
+        <div class="game-controls" onclick="showStartScreen()">Back to Menu</div>
+      </div>
+      <!---------------------------- YOU WIN SCREEN ---------------------------->
+      <div class="you-win-container d-none">
+        <div class="win-screen-overlay"></div>
+        <img class="win-screen" src="./img/5_background/first_half_background.png" alt="">
+        <div class="you-win-letters">YOU WIN!!</div>
+        <div class="game-controls" onclick="showStartScreen()">Back to Menu</div>
+      </div>
+
+      <!---------------------------- AUDIO BUTTONS ---------------------------->
+      <div class="audio-button-holder d-none">
+        <img onclick="world.character.stopAllAudio()" id="icon-sound-on" src="./img/10_game_icons/icon_sound_on.png"
+          alt="">
+        <img onclick="world.character.playAllAudio()" class="d-none" id="icon-sound-off"
+          src="./img/10_game_icons/icon_sound_off.png" alt="">
+      </div>
+    </div>
+  </div>
+  <!---------------------------- ACTION BUTTONS ---------------------------->
+  <div class="action-btns" id="action-btn-right">
+    <img src="./img/12_action_buttons/right_arrow.png" alt="">
+  </div>
+  <div class="action-btns" id="action-btn-left">
+    <img src="./img/12_action_buttons/left_arrow.png"  alt="">
+  </div>
+  <div class="action-btns" id="action-btn-up">
+    <img src="./img/12_action_buttons/up_arrow.png"  alt="">
+  </div>
+  <div class="action-btns" id="action-btn-throw">
+    <img id="throw-img" src="./img/12_action_buttons/throw_bottle.png"  alt="">
+  </div>
+  <!---------------------------- ROTATE PHONE ---------------------------->
+  <div class="rotate-phone-container">
+    <img class="rotate-phone-img" src="./img/rotate_phone.png" alt="">
+  </div>
+  <!---------------------------- DIALOG ---------------------------->
+  <div class="dialog-bg d-none" onclick="hideDialogBg()">
+  </div>
+
+</body>
+
+</html>
